@@ -29,6 +29,31 @@
         }
     </style>
 </head>
+
+    
+<!-- Tambahkan ini sebelum </body> -->
+<audio id="bg-audio" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+</audio>
+
+<script>
+    // Pastikan audio mulai saat user pertama kali klik/scroll
+    document.addEventListener('click', function () {
+        var audio = document.getElementById('bg-audio');
+        audio.play();
+    }, { once: true });
+    document.addEventListener('scroll', function () {
+        var audio = document.getElementById('bg-audio');
+        audio.play();
+    }, { once: true });
+</script>
+
+
+
+
+
+    
 <body class="bg-gray-50">
 
     <!-- Header -->
@@ -234,6 +259,7 @@
     
 </body>
 </html>
+
 
 
 
