@@ -114,49 +114,7 @@
     </section>
 
     
-<!-- Mulai Animasi Burung Merpati -->
-<style>
-  body {
-    position: relative;
-    overflow: hidden;
-  }
-  .merpati {
-    position: absolute;
-    font-size: 30px;
-    user-select: none;
-    pointer-events: none;
-    transition: transform 1s linear;
-  }
-</style>
 
-<div class="merpati">🕊️</div>
-
-<script>
-  const merpati = document.querySelector('.merpati');
-  let screenWidth = window.innerWidth;
-  let screenHeight = window.innerHeight;
-
-  function randomPosition() {
-    return {
-      x: Math.random() * (screenWidth - 50),
-      y: Math.random() * (screenHeight - 50)
-    };
-  }
-
-  function moveMerpati() {
-    const pos = randomPosition();
-    merpati.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-  }
-
-  setInterval(moveMerpati, 1500);
-  moveMerpati();
-
-  window.addEventListener('resize', () => {
-    screenWidth = window.innerWidth;
-    screenHeight = window.innerHeight;
-  });
-</script>
-<!-- Selesai Animasi Burung Merpati -->
 
 
 
@@ -309,6 +267,7 @@
     
 </body>
 </html>
+
 
 
 
