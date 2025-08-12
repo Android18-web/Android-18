@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Iskandar Muda Simbolon,</title>
+    <meta name="description" content="Portofolio Iskandar Muda Simbolon - Saya bergerak di bidang multimedia dengan fokus pada pengembangan keterampilan>
+    <meta name="keywords" content="Portofolio, Desain Grafis, Fotografi, Multimedia, Instalasi Komputer">
+    <meta name="author" content="Iskandar Muda Simbolon">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background-color: #e0f2fe;
+            background-image: radial-gradient(at 80% 0%, hsla(189,100%,85%,0.5) 0px, transparent 50%),
+                              radial-gradient(at 0% 50%, hsla(200,100%,75%,0.3) 0px, transparent 50%);
+        }
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">Android18</div>
+            <div class="hidden md:flex space-x-8" id="nav-links">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Beranda</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition">Tentang</a>
+                <a href="#portfolio" class="text-gray-700 hover:text-blue-600 transition">Portofolio</a>
+                <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Keterampilan</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Kontak</a>
+            </div>
+
+>
+
+            <button class="md:hidden text-gray-700" id="menu-btn" aria-label="Menu Navigasi">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div class="hidden bg-white border-t border-gray-200 flex-col space-y-4 px-4 py-4 md:hidden" id="mobile-menu">
+            <a href="#home" class="block text-gray-700 hover:text-blue-600 transition">Beranda</a>
+            <a href="#about" class="block text-gray-700 hover:text-blue-600 transition">Tentang</a>
+            <a href="#portfolio" class="block text-gray-700 hover:text-blue-600 transition">Portofolio</a>
+            <a href="#skills" class="block text-gray-700 hover:text-blue-600 transition">Keterampilan</a>
+            <a href="#contact" class="block text-gray-700 hover:text-blue-600 transition">Kontak</a>
+        </div>
+    </header>
+
+<marquee bgcolor='yellow'> Maintance </marquee>
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern min-h-[80vh] flex items-center">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+                    Hi, Selamat Datang di Portofolio Saya <span class="text-blue-600">Iskandar Muda Simbolon</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600">PENYEDIA JASA</h2>
+                <p class="text-gray-600 max-w-lg">
+                    Saya bergerak di bidang multimedia dengan fokus pada pengembangan keterampilan .
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">Hubungi Saya</a>
+                    <a href="#portfolio" class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition duration-300">Lihat Portofolio</a>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="bg-white p-1 rounded-full shadow-xl overflow-hidden">
+                    <img src="images/dewa1.jpg" alt="Foto Profil Iskandar Muda Simbolon" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <img src="images/dewa2.jpg" alt="Foto Tentang Saya" loading="lazy">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang Saya</h2>
+                <p class="text-gray-600 mb-4">
+                    Berpengalaman dalam desain grafis, fotografi, dan instalasi komputer..
+                </p>
+                <p class="text-gray-600">
+                    Selalu berusaha memenuhi kebutuhan klien dengan maksimal..
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Portofolio</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="images/dewa4.jpg" alt="Foto Tentang Saya" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Desain Grafis</h3>
+                        <p class="text-gray-600 text-sm">Proyek branding dan pembuatan konten visual.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="images/dewa5.jpg" alt="Foto Tentang Saya" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Fotografi</h3>
+                        <p class="text-gray-600 text-sm">Pemotretan produk dan event profesional.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="images/dewa6.jpg" alt="Foto Tentang Saya" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Jasa Instalasi Komputer</h3>
+                        <p class="text-gray-600 text-sm">Install Windows,Linux,Dll.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">Keterampilan</h2>
+            <div class="space-y-6">
+                <div>
+                    <p class="text-gray-800 font-semibold mb-2">Desain Grafis</p>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-blue-600 h-4 rounded-full skill-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-gray-800 font-semibold mb-2">Fotografi</p>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-blue-600 h-4 rounded-full skill-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-gray-800 font-semibold mb-2">Menjual Produk Digital</p>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-blue-600 h-4 rounded-full skill-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-gray-800 font-semibold mb-2">Instalasi Komputer</p>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-blue-600 h-4 rounded-full skill-bar" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Kontak</h2>
+                <p class="text-gray-600 mt-2">Hubungi saya untuk kerja sama atau konsultasi</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto space-y-6">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full">
+                        📞
+                    </div>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="text-lg text-gray-700 hover:text-green-600">
+                        081375660995
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                        ✉️
+                    </div>
+                    <a href="mailto:emailanda@gmail.com" class="text-lg text-gray-700 hover:text-blue-600">
+                        androiiiddd18@gmai.com
+                    </a>
+                </div>
+
+
+
+                <div class="flex items-center space-x-4">
+                    <div class="bg-pink-100 text-pink-600 p-3 rounded-full">
+                        📷
+                    </div>
+                    <a href="https://instagram.com/username" target="_blank" class="text-lg text-gray-700 hover:text-pink-600">
+                        @Kandarken007
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 mt-12 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-gray-600 text-sm">
+            <p>&copy; 2025 Android18. Semua Hak Dilindungi.</p>
+            <div class="mt-4 md:mt-0 flex space-x-4">
+                <a href="#home" class="hover:text-blue-600">Beranda</a>
+                <a href="#about" class="hover:text-blue-600">Tentang</a>
+                <a href="#portfolio" class="hover:text-blue-600">Portofolio</a>
+                <a href="#skills" class="hover:text-blue-600">Keterampilan</a>
+                <a href="#contact" class="hover:text-blue-600">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Toggle Menu Mobile -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    
+</body>
+</html>
