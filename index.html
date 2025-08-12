@@ -30,19 +30,23 @@
     </style>
 </head>
 
+
+<!-- Audio Musik Otomatis -->
 <audio id="bg-audio" autoplay loop muted>
     <source src="ngoni.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
 </audio>
 
 <script>
-    // Setelah klik pertama, aktifkan suara
-    document.addEventListener('click', function () {
+    // Aktifkan suara setelah interaksi user
+    function enableAudio() {
         var audio = document.getElementById('bg-audio');
         audio.muted = false;
         audio.play();
-    }, { once: true });
+    }
+    document.addEventListener('click', enableAudio, { once: true });
+    document.addEventListener('scroll', enableAudio, { once: true });
 </script>
-
 
     
     
@@ -253,6 +257,7 @@
     
 </body>
 </html>
+
 
 
 
