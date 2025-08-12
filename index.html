@@ -30,24 +30,20 @@
     </style>
 </head>
 
+
+
+
+    
     
 <!-- Tambahkan ini sebelum </body> -->
+<audio id="bg-audio" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+    
 <audio id="bg-audio" autoplay loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Browser kamu tidak mendukung audio.
 </audio>
-
-<script>
-    // Pastikan audio mulai saat user pertama kali klik/scroll
-    document.addEventListener('click', function () {
-        var audio = document.getElementById('bg-audio');
-        audio.play();
-    }, { once: true });
-    document.addEventListener('scroll', function () {
-        var audio = document.getElementById('bg-audio');
-        audio.play();
-    }, { once: true });
-</script>
 
 
 
@@ -259,6 +255,7 @@
     
 </body>
 </html>
+
 
 
 
