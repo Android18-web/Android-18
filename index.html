@@ -241,6 +241,58 @@
         </div>
     </section>
 
+<!-- Visitor Counter Footerpengunjung -->
+  <footer class="bg-white border-t border-gray-300 py-6 text-center">
+    <div class="flex flex-col items-center space-y-2">
+      <!-- Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A9 9 0 1118.88 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <p class="text-gray-600 font-semibold">Jumlah Pengunjung di Browser Ini</p>
+      <p class="text-blue-600 text-3xl font-extrabold" id="visitor-count">0</p>
+    </div>
+  </footer>
+
+  <script>
+    let count = localStorage.getItem('visitorCount');
+    if (!count) count = 1;
+    else count = parseInt(count) + 1;
+    localStorage.setItem('visitorCount', count);
+
+    const countEl = document.getElementById('visitor-count');
+    countEl.textContent = count;
+
+    // Animate count from 0 to count
+    let start = 0;
+    const end = count;
+    const duration = 1000;
+    const stepTime = Math.abs(Math.floor(duration / end));
+
+    function animateCount() {
+      if (start < end) {
+        start++;
+        countEl.textContent = start;
+        setTimeout(animateCount, stepTime);
+      }
+    }
+    animateCount();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <!-- Footer -->
     <footer class="bg-white py-6 mt-12 border-t border-gray-200">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-gray-600 text-sm">
@@ -267,6 +319,7 @@
     
 </body>
 </html>
+
 
 
 
