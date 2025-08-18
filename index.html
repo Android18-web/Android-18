@@ -263,83 +263,92 @@
   </div>
 </footer>
 
-<!-- Mini Game Puzzle 3x3 dengan GIF -->
+<!-- Puzzle GIF 3x3 Teracak -->
 <section class="bg-gray-50 py-8">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="text-xl font-bold mb-2">🧩 Puzzle GIF 3x3</h2>
     <p class="mb-4 text-gray-700 text-sm">Susun kembali potongan gambar GIF bergerak untuk melihat gambar utuh!</p>
 
-    <div id="puzzle-container" class="grid grid-cols-3 gap-1 mx-auto" style="width:300px; height:300px;">
-      <!-- Potongan puzzle akan di-generate otomatis -->
+    <div class="flex justify-center">
+      <div id="puzzle-container" class="relative" style="width:300px; height:300px; background:#f0f0f0;"></div>
     </div>
-
-    <button id="shuffle-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Acak Puzzle</button>
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
 <script>
   const container = document.getElementById('puzzle-container');
-  const shuffleBtn = document.getElementById('shuffle-btn');
 
-  // Ganti dengan GIF bergerak dari lokal atau URL
   const imgSrc = "bergerak.gif";
   const rows = 3;
   const cols = 3;
+  const containerSize = 300;
+  const pieceSize = containerSize / 3;
   let pieces = [];
 
   function createPuzzle() {
     container.innerHTML = "";
     pieces = [];
+
+    // Buat array posisi awal
+    let positions = [];
     for(let r=0; r<rows; r++){
       for(let c=0; c<cols; c++){
-        const piece = document.createElement('div');
-        piece.classList.add('puzzle-piece');
-        piece.style.backgroundImage = `url(${imgSrc})`;
-        piece.style.backgroundSize = `${cols*100}% ${rows*100}%`;
-        piece.style.backgroundPosition = `${(c/(cols-1))*100}% ${(r/(rows-1))*100}%`;
-        piece.style.border = "1px solid #ccc";
-        piece.style.width = "calc(100%/3)";
-        piece.style.height = "calc(100%/3)";
-        piece.draggable = true;
-
-        piece.addEventListener('dragstart', dragStart);
-        piece.addEventListener('dragover', dragOver);
-        piece.addEventListener('drop', dropPiece);
-
-        container.appendChild(piece);
-        pieces.push(piece);
+        positions.push({r,c});
       }
     }
-  }
 
-  let dragged;
+    // Acak posisi
+    positions.sort(() => Math.random() - 0.5);
 
-  function dragStart(e){
-    dragged = e.target;
-  }
+    for(let i=0; i<rows*cols; i++){
+      const pos = positions[i];
+      const piece = document.createElement('div');
+      piece.classList.add('puzzle-piece');
+      piece.style.position = 'absolute';
+      piece.style.width = `${pieceSize}px`;
+      piece.style.height = `${pieceSize}px`;
+      piece.style.left = `${pos.c*pieceSize}px`;
+      piece.style.top = `${pos.r*pieceSize}px`;
+      piece.style.backgroundImage = `url(${imgSrc})`;
+      piece.style.backgroundSize = `${cols*100}% ${rows*100}%`;
+      piece.style.backgroundPosition = `${(i%cols)/(cols-1)*100}% ${(Math.floor(i/cols)/(rows-1))*100}%`;
+      piece.style.border = "1px solid #ccc";
+      piece.setAttribute('data-row', pos.r);
+      piece.setAttribute('data-col', pos.c);
 
-  function dragOver(e){
-    e.preventDefault();
-  }
-
-  function dropPiece(e){
-    e.preventDefault();
-    const target = e.target;
-    if(dragged !== target){
-      const temp = dragged.style.backgroundPosition;
-      dragged.style.backgroundPosition = target.style.backgroundPosition;
-      target.style.backgroundPosition = temp;
+      container.appendChild(piece);
+      pieces.push(piece);
     }
-  }
 
-  shuffleBtn.addEventListener('click', () => {
-    pieces.forEach(piece => {
-      const randPos = pieces[Math.floor(Math.random()*pieces.length)];
-      const temp = piece.style.backgroundPosition;
-      piece.style.backgroundPosition = randPos.style.backgroundPosition;
-      randPos.style.backgroundPosition = temp;
+    // Drag & Drop Interact.js
+    interact('.puzzle-piece').draggable({
+      inertia: true,
+      modifiers: [interact.modifiers.restrictRect({ restriction: 'parent', endOnly: true })],
+      listeners: {
+        move(event){
+          const target = event.target;
+          const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+          const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+          target.style.transform = `translate(${x}px, ${y}px)`;
+          target.setAttribute('data-x', x);
+          target.setAttribute('data-y', y);
+        },
+        end(event){
+          const target = event.target;
+          const x = parseFloat(target.style.left) + (parseFloat(target.getAttribute('data-x')) || 0);
+          const y = parseFloat(target.style.top) + (parseFloat(target.getAttribute('data-y')) || 0);
+          const col = Math.round(x / pieceSize);
+          const row = Math.round(y / pieceSize);
+          target.style.left = `${col*pieceSize}px`;
+          target.style.top = `${row*pieceSize}px`;
+          target.style.transform = '';
+          target.setAttribute('data-x', 0);
+          target.setAttribute('data-y', 0);
+        }
+      }
     });
-  });
+  }
 
   createPuzzle();
 </script>
